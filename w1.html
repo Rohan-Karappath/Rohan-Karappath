@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan K - Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+            /* This ensures section titles aren't hidden by the sticky header */
+            scroll-padding-top: 80px; 
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .card {
+            /* Kept the same card base */
+            @apply bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-sm transition-all duration-300;
+        }
+        
+        .card-hover {
+            @apply hover:shadow-lg hover:-translate-y-1; /* Made hover slightly stronger */
+        }
+        
+        .skill-btn {
+            @apply flex flex-col items-center justify-center gap-3 px-4 py-6 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 shadow-sm transition-all duration-200 ease-in-out;
+            @apply hover:shadow-lg hover:scale-105 hover:border-indigo-400 dark:hover:border-indigo-500;
+            min-height: 120px; 
+        }
+        
+        .skill-btn span {
+            @apply font-medium text-zinc-700 dark:text-zinc-200 text-sm;
+        }
+
+        /* This is the existing pill style, which matches the screenshot */
+        .skill-pill {
+             @apply inline-block bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-full px-3 py-1 text-xs font-medium;
+        }
+        
+        .btn {
+            @apply px-4 py-2 rounded-md font-semibold text-sm transition-all duration-200;
+        }
+        
+        .btn-primary {
+            @apply bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm;
+        }
+        
+        .btn-secondary {
+            @apply bg-zinc-100 text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-600;
+        }
+
+    </style>
+</head>
+
+<body class="bg-zinc-50 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
+
+    <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800">
+        <nav class="container mx-auto max-w-5xl px-4 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-zinc-900 dark:text-white">
+                <a href="#home">Rohan K</a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="text-zinc-600 dark:text-zinc-300 hover:text-indigo-600">Home</a>
+                <a href="#about" class="text-zinc-600 dark:text-zinc-300 hover:text-indigo-600">About</a>
+                <a href="#projects" class="text-zinc-600 dark:text-zinc-300 hover:text-indigo-600">Projects</a>
+                <a href="#volunteering" class="text-zinc-600 dark:text-zinc-300 hover:text-indigo-600">Volunteering</a>
+                <a href="#contact" class="text-zinc-600 dark:text-zinc-300 hover:text-indigo-600">Contact</a>
+            </div>
+            
+            <button id="theme-toggle" class="text-zinc-600 dark:text-zinc-300 hover:text-indigo-600">
+                <i class="fa-solid fa-moon" id="theme-icon-dark"></i>
+                <i class="fa-solid fa-sun hidden" id="theme-icon-light"></i>
+            </button>
+            
+            <div class="md:hidden">
+                <span class="text-2xl">...</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto max-w-5xl p-4 md:p-8 mt-8">
+
+        <section id="home" class="pt-8">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="text-indigo-600 dark:text-indigo-400 font-semibold">Hi, I'm Rohan Karappath</span>
+                    <h1 class="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mt-2 mb-6">
+                        Integrated MCA Student & Aspiring Web Developer
+                    </h1>
+                    <p class="text-lg text-zinc-600 dark:text-zinc-300 mb-8">
+                        Passionate about building modern web applications and exploring new technologies.
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="https://www.linkedin.com/in/rohan-karappath-a1004532a" target="_blank" class="btn btn-secondary">
+                            My LinkedIn <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-1 max-w-xs md:max-w-sm">
+                    <img src="rk6.jpg" alt="Rohan K" class="rounded-full shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mt-20 pt-8">
+            <h1 class="text-3xl font-bold text-zinc-900 dark:text-white mb-8">About Me</h1>
+            
+            <div class="space-y-6 text-lg text-zinc-700 dark:text-zinc-300">
+                <p>
+                    Hi! I’m Rohan K, an Integrated MCA student at Rajagiri College of Social Sciences, Kalamassery. I’ve always been passionate about technology and how it continues to shape the world around us. My journey in computer applications has helped me turn that curiosity into strong technical skills and a creative mindset.
+                </p>
+                <p>
+                    I’m proficient in C, Python, and Java, and have a solid foundation in web designing using HTML and JavaScript. I also have experience in database management, which allows me to combine logic, design, and data to build efficient and meaningful solutions.
+                </p>
+                <p>
+                    I enjoy learning new technologies, exploring innovative ideas, and collaborating with others to create impactful projects. Every opportunity is a chance to grow, improve, and contribute something valuable.
+                </p>
+                <p>
+                    Let’s connect and explore opportunities to learn, collaborate, and make an impact together!
+                </p>
+            </div>
+            
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-zinc-900 dark:text-white mb-6">Education</h2>
+                <div class="card p-6">
+                    <ul class="list-disc list-inside space-y-2 text-zinc-700 dark:text-zinc-300 text-lg">
+                        <li><strong>IMCA:</strong> RCSS (2024-29)</li>
+                        <li><strong>Higher Secondary Education (Bio, Maths):</strong> METEMHSS (2021-23)</li>
+                        <li><strong>SSLC:</strong> METEMHSS (2021)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-zinc-900 dark:text-white mb-6">My Family</h2>
+                <div class="card p-6">
+                    <p class="text-lg text-zinc-700 dark:text-zinc-300">
+                        I'm fortunate to have a family that has always been my biggest support system. My parents, both dedicated government employees—my father as a Junior Superintendent at the Department of Treasuries, Kerala, and my mother as a Process Server at the Munsiff Magistrate Court—have consistently encouraged my passion for technology and motivated me to pursue my goals. Their support is a cornerstone of my journey. I also have a brother who is currently a student at METEMHSS.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-zinc-900 dark:text-white mb-6">My Skills</h2>
+                <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo">
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java logo">
+                        <span>Java</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C logo">
+                        <span>C</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5 logo">
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3 logo">
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript logo">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS logo">
+                        <span>Tailwind CSS</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL logo">
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg" alt="Oracle logo">
+                        <span>Oracle (PL/SQL)</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" alt="Database logo">
+                        <span>DB Management</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code logo">
+                        <span>Web Development</span>
+                    </div>
+                    <div class="skill-btn">
+                        <img class="h-14 w-14" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="Canva logo">
+                        <span>Canva</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-zinc-900 dark:text-white mb-6">Certifications</h2>
+                <div class="space-y-4">
+                    <div class="card p-5">
+                        <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Introduction to Web Design & Development</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 text-sm">Certificate of Completion for the 3-credit multi-disciplinary course from Rajagiri College of Social Sciences.</p>
+                    </div>
+                    <div class="card p-5">
+                        <h3 class="text-lg font-semibold text-zinc-900 dark:text-white">Service-Learning Program (Whole Person Education)</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 text-sm">Certificate of Appreciation for completing the service-learning program at the Kerala Rehabilitation Institute for the Physically Affected (KRIPA), Aluva.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-zinc-900 dark:text-white mb-6">Hobbies & Interests</h2>
+                <div class="card p-6 text-lg text-zinc-700 dark:text-zinc-300">
+                    <p class="mb-4">
+                        When I'm not coding, I have a diverse range of interests. I'm an avid reader and enjoy writing. You can often find me following a cricket match, as I'm a huge fan of the sport, or playing a game of badminton to stay active.
+                    </p>
+                    <p>
+                        I also have a keen interest in current affairs and politics. I firmly believe that being an informed and engaged citizen is not just a passing interest, but a fundamental responsibility in today's world.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="projects" class="mt-20 pt-8">
+            <h1 class="text-3xl font-bold text-zinc-900 dark:text-white mb-8">Projects</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="card card-hover overflow-hidden">
+                    <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=600&h=400&auto=format&fit=crop" alt="Modern hospital building exterior">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-2">Hospital Management System</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 mb-4 text-sm min-h-[60px]">
+                            A desktop application for managing patient records, appointments, and staff, built using Java.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">Eclipse IDE</span>
+                            <span class="skill-pill">OOP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-hover overflow-hidden">
+                    <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=600&h=400&auto=format&fit=crop" alt="People collaborating on a forum app on a laptop">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-2">Mini Forum App</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 mb-4 text-sm min-h-[60px]">
+                            A simple web-based forum application allowing users to post topics and comment, developed with Python.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-hover overflow-hidden">
+                    <img class="h-40 w-full object-cover" src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="Modern portfolio website design on a monitor">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-2">Portfolio Website</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 mb-4 text-sm min-h-[60px]">
+                            A clean, modern, single-page portfolio (this one!) built to showcase my skills and projects.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">HTML</span>
+                            <span class="skill-pill">Tailwind CSS</span>
+                            <span class="skill-pill">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-hover overflow-hidden">
+                    <img class="h-40 w-full object-cover" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&h=400&auto=format&fit=crop" alt="Database server room with blue lights">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-2">Database Management System Design</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 mb-4 text-sm min-h-[60px]">
+                            Designed a relational database schema for a hypothetical college management system.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">SQL</span>
+                            <span class="skill-pill">ERD Design</span>
+                            <span class="skill-pill">Normalization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-hover overflow-hidden">
+                    <div class="h-40 w-full flex items-center justify-center p-4 bg-white dark:bg-zinc-800 border-b border-zinc-200 dark:border-zinc-700">
+                        <div class="flex gap-2">
+                            <div class="h-3 w-3 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: -0.3s;"></div>
+                            <div class="h-3 w-3 bg-indigo-500 rounded-full animate-bounce" style="animation-delay: -0.15s;"></div>
+                            <div class="h-3 w-3 bg-indigo-500 rounded-full animate-bounce"></div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-2">New Project</h3>
+                        <p class="text-zinc-600 dark:text-zinc-300 mb-4 text-sm min-h-[60px]">
+                            I'm currently working on something new and exciting. Updates will be posted here soon!
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Revealing Soon!</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+        
+
+        <section id="volunteering" class="mt-20 pt-8">
+            <h1 class="text-3xl font-bold text-zinc-900 dark:text-white mb-8">Volunteering & Activities</h1>
+            
+            <div class="space-y-6">
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-1">National Service Scheme (NSS)</h3>
+                    <p class="text-zinc-600 dark:text-zinc-300">
+                        Actively participated in community service events, environmental drives, and social awareness campaigns as part of the NSS.
+                    </p>
+                </div>
+                
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-1">The Bharat Scouts And Guides</h3>
+                    <p class="text-zinc-600 dark:text-zinc-300">
+                        Developed leadership, teamwork, and survival skills through various camps, rallies, and community development projects.
+                    </q>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mt-20 pt-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+                
+                <div class="md:col-span-3">
+                    <h1 class="text-3xl font-bold text-zinc-900 dark:text-white mb-4">Get In Touch</h1>
+                    <p class="text-lg text-zinc-600 dark:text-zinc-300 mb-8">
+                        I'm always open to connecting. Feel free to send me a message or connect on LinkedIn.
+                    </p>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">Your Name</label>
+                                <input type="text" id="name" class="mt-1 block w-full rounded-md border-zinc-300 dark:border-zinc-600 dark:bg-zinc-800 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">Your Email</label>
+                                <input type="email" id="email" class="mt-1 block w-full rounded-md border-zinc-300 dark:border-zinc-600 dark:bg-zinc-800 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">Message</label>
+                            <textarea id="message" rows="4" class="mt-1 block w-full rounded-md border-zinc-300 dark:border-zinc-600 dark:bg-zinc-800 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="md:col-span-2">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-zinc-900 dark:text-white mb-4">Contact Details</h3>
+                        <div class="space-y-5">
+                            <a href="https://www.linkedin.com/in/rohan-karappath-a1004532a" target="_blank" class="flex items-center space-x-3 text-indigo-600 dark:text-indigo-400 hover:underline">
+                                <i class="fa-brands fa-linkedin text-xl w-6 text-center"></i>
+                                <span>Connect on LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/Rohan-Karappath" target="_blank" class="flex items-center space-x-3 text-indigo-600 dark:text-indigo-400 hover:underline mt-5">
+                                <i class="fa-brands fa-github text-xl w-6 text-center"></i>
+                                <span>View my GitHub</span>
+                            </a>
+                            <a href="mailto:rohankarappath@gmail.com" class="flex items-center space-x-3 text-indigo-600 dark:text-indigo-400 hover:underline mt-5">
+                                <i class="fa-solid fa-envelope text-xl w-6 text-center"></i>
+                                <span>Email me</span>
+                            </a>
+                            <a href="tel:7907564864" class="flex items-center space-x-3 text-indigo-600 dark:text-indigo-400 hover:underline mt-5">
+                                <i class="fa-solid fa-phone text-xl w-6 text-center"></i>
+                                <span>Call or Text me</span>
+                            </a>
+                            <div class="flex items-start space-x-3 text-zinc-700 dark:text-zinc-300 mt-5">
+                                <i class="fa-solid fa-location-dot text-xl w-6 text-center mt-1"></i>
+                                <span>Karappath House,<br>Alanallur, Palakkad (Dist),<br>Kerala</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 mt-16 border-t border-zinc-200 dark:border-zinc-800">
+        <p class="text-zinc-500 dark:text-zinc-400">
+            &copy; <span id="current-year"></span> Rohan Karappath. Built with Tailwind CSS.
+        </p>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIconDark = document.getElementById('theme-icon-dark');
+            const themeIconLight = document.getElementById('theme-icon-light');
+            const htmlEl = document.documentElement;
+
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            const updateThemeIcon = (isDark) => {
+                if (isDark) {
+                    themeIconDark.classList.add('hidden');
+                    themeIconLight.classList.remove('hidden');
+                } else {
+                    themeIconDark.classList.remove('hidden');
+                    themeIconLight.classList.add('hidden');
+                }
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let isDark = savedTheme ? (savedTheme === 'dark') : prefersDark;
+
+            htmlEl.classList.toggle('dark', isDark);
+            updateThemeIcon(isDark);
+
+            themeToggle.addEventListener('click', () => {
+                isDark = !isDark;
+                htmlEl.classList.toggle('dark', isDark);
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateThemeIcon(isDark);
+            });
+        });
+    </script>
+
+</body>
+</html>
